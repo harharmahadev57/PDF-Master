@@ -1,39 +1,38 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-color: #f8f9fa;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
 }
 
 header {
-    background-color: #007BFF;
+    background: #4CAF50;
     color: white;
-    padding: 10px;
-    font-size: 24px;
+    padding: 20px;
 }
 
-.container {
-    margin: 20px auto;
-    width: 80%;
-    max-width: 600px;
-}
-
-.tools button {
-    margin: 5px;
-    padding: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #28A745;
+button {
+    background: #008CBA;
     color: white;
+    padding: 10px;
     border: none;
-    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
 }
 
-.tools button:hover {
-    background-color: #218838;
+button:hover {
+    background: #005f73;
 }
 
-input, button {
-    margin-top: 10px;
-    padding: 10px;
-    font-size: 16px;
+.upload-section {
+    margin: 20px;
+    padding: 20px;
+    border: 2px dashed #aaa;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.tool-section {
+    margin: 20px;
 }
