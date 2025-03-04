@@ -1,79 +1,69 @@
-document.getElementById('dropArea').addEventListener('dragover', function (event) {
-    event.preventDefault();
-    this.style.background = '#ffcccb';
-});
+function processFile() {
+    let fileInput = document.getElementById("pdfUpload");
+    let file = fileInput.files[0];
 
-document.getElementById('dropArea').addEventListener('dragleave', function () {
-    this.style.background = '';
-});
-
-document.getElementById('dropArea').addEventListener('drop', function (event) {
-    event.preventDefault();
-    this.style.background = '';
-
-    let file = event.dataTransfer.files[0];
-    document.getElementById('pdfUpload').files = event.dataTransfer.files;
-    alert("File Uploaded: " + file.name);
-});
-
-function updateProgress(percent) {
-    document.getElementById("progress-bar").style.width = percent + "%";
-    document.getElementById("status").innerText = "Processing: " + percent + "%";
+    if (file) {
+        alert("Processing: " + file.name);
+        updateProgress(50);
+        setTimeout(() => updateProgress(100), 2000);
+    } else {
+        alert("Please upload a file.");
+    }
 }
 
 function mergePDF() {
-    updateProgress(10);
-    setTimeout(() => { updateProgress(50); }, 1000);
-    setTimeout(() => { updateProgress(100); alert("PDF मर्जिंग सफलतापूर्वक पूरी हुई!"); }, 2000);
+    alert("Merging PDFs...");
+    updateProgress(100);
 }
 
 function splitPDF() {
-    updateProgress(10);
-    setTimeout(() => { updateProgress(50); }, 1000);
-    setTimeout(() => { updateProgress(100); alert("PDF स्प्लिटिंग पूरी हुई!"); }, 2000);
+    alert("Splitting PDFs...");
+    updateProgress(100);
 }
 
 function pdfToJPG() {
-    updateProgress(10);
-    setTimeout(() => { updateProgress(50); }, 1000);
-    setTimeout(() => { updateProgress(100); alert("PDF को JPG में बदल दिया गया!"); }, 2000);
+    alert("Converting PDF to JPG...");
+    updateProgress(100);
 }
 
 function jpgToPDF() {
-    updateProgress(10);
-    setTimeout(() => { updateProgress(50); }, 1000);
-    setTimeout(() => { updateProgress(100); alert("JPG को PDF में बदल दिया गया!"); }, 2000);
+    alert("Converting JPG to PDF...");
+    updateProgress(100);
 }
 
 function wordToPDF() {
-    updateProgress(10);
-    setTimeout(() => { updateProgress(50); }, 1000);
-    setTimeout(() => { updateProgress(100); alert("Word को PDF में बदल दिया गया!"); }, 2000);
+    alert("Converting Word to PDF...");
+    updateProgress(100);
 }
 
 function pdfToWord() {
-    updateProgress(10);
-    setTimeout(() => { updateProgress(50); }, 1000);
-    setTimeout(() => { updateProgress(100); alert("PDF को Word में बदल दिया गया!"); }, 2000);
+    alert("Converting PDF to Word...");
+    updateProgress(100);
 }
 
 function addText() {
-    updateProgress(10);
-    setTimeout(() => { updateProgress(50); }, 1000);
-    setTimeout(() => { updateProgress(100); alert("PDF में टेक्स्ट जोड़ दिया गया!"); }, 2000);
+    alert("Adding Text...");
+    updateProgress(100);
 }
 
 function removeText() {
-    updateProgress(10);
-    setTimeout(() => { updateProgress(50); }, 1000);
-    setTimeout(() => { updateProgress(100); alert("PDF से टेक्स्ट हटा दिया गया!"); }, 2000);
+    alert("Removing Text...");
+    updateProgress(100);
+}
+
+function addImage() {
+    alert("Adding Image...");
+    updateProgress(100);
 }
 
 function renamePDF() {
-    let newName = prompt("नया नाम दर्ज करें:");
+    let newName = prompt("Enter new PDF name:");
     if (newName) {
-        updateProgress(10);
-        setTimeout(() => { updateProgress(50); }, 1000);
-        setTimeout(() => { updateProgress(100); alert("PDF का नाम बदला गया: " + newName); }, 2000);
+        alert("PDF renamed to " + newName);
+        updateProgress(100);
     }
+}
+
+function updateProgress(value) {
+    document.getElementById("progress-bar").style.width = value + "%";
 }
