@@ -89,3 +89,52 @@
     <script src="script.js"></script>
 </body>
 </html>
+
+
+
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Master - Ultimate PDF Toolkit</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+
+    <!-- 🏆 Website Header -->
+    <header>
+        <img src="logo.png" alt="PDF Master Logo" class="logo">
+        <h1>PDF Master</h1>
+    </header>
+
+    <!-- 📂 Drag & Drop File Upload -->
+    <div id="dropArea" class="drop-area">
+        <p>Drag & Drop your PDF here or</p>
+        <input type="file" id="pdfUpload" accept=".pdf">
+        <button onclick="processFile()">Upload PDF</button>
+    </div>
+
+    <!-- 🔥 Features Section -->
+    <div class="feature-container">
+        <button id="mergePDF">📄 Merge PDF</button>
+        <button id="splitPDF">✂️ Split PDF</button>
+        <button id="pdfToJPG">📸 Convert PDF to JPG</button>
+        <button id="jpgToPDF">📄 Convert JPG to PDF</button>
+        <button id="wordToPDF">📜 Convert Word to PDF</button>
+        <button id="pdfToWord">📜 Convert PDF to Word</button>
+        <button id="addText">✍️ Add Text</button>
+        <button id="removeText">❌ Remove Text</button>
+        <button id="addImage">🖼️ Add Image</button>
+        <button id="removeLogo">🚫 Remove Logo</button>
+    </div>
+
+    <!-- 🔄 Progress Bar -->
+    <div class="progress-bar-container">
+        <div id="progressBar" class="progress-bar"></div>
+    </div>
+
+</body>
+</html>
