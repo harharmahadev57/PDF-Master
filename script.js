@@ -1,80 +1,95 @@
-document.addEventListener("DOMContentLoaded", function() {
-    let dropArea = document.querySelector(".upload-section");
-
-    dropArea.addEventListener("dragover", function(e) {
-        e.preventDefault();
-        dropArea.style.border = "2px solid green";
-    });
-
-    dropArea.addEventListener("dragleave", function() {
-        dropArea.style.border = "2px dashed #aaa";
-    });
-
-    dropArea.addEventListener("drop", function(e) {
-        e.preventDefault();
-        dropArea.style.border = "2px dashed #aaa";
-        let files = e.dataTransfer.files;
-        if (files.length > 0) {
-            document.getElementById("pdfUpload").files = files;
-            alert("PDF अपलोड हो गई: " + files[0].name);
-        }
-    });
-});
-
-function mergePDF() {
-    alert("PDF मर्ज हो रही है!");
-}
-
-function splitPDF() {
-    alert("PDF स्प्लिट हो रही है!");
-}
-
-function renamePDF() {
-    let newName = prompt("नया नाम डालें:");
-    if (newName) {
-        alert("PDF का नाम बदला गया: " + newName);
+async function mergePDFs() {
+    const { PDFDocument } = PDFLib;
+    const files = document.getElementById("pdfUpload").files;
+    if (files.length < 2) {
+        alert("Please select at least 2 PDFs to merge.");
+        return;
     }
+    const mergedPdf = await PDFDocument.create();
+    for (const file of files) {
+        const bytes = await file.arrayBuffer();
+        const pdf = await PDFDocument.load(bytes);
+        const copiedPages = await mergedPdf.copyPages(pdf, pdf.getPageIndices());
+        copiedPages.forEach((page) => mergedPdf.addPage(page));
+    }
+    const mergedPdfBytes = await mergedPdf.save();
+    downloadPDF(mergedPdfBytes, "Merged.pdf");
 }
 
-function pdfToJPG() {
-    alert("PDF से JPG में बदला जा रहा है!");
+async function splitPDF() {
+    alert("Splitting PDFs - Feature under development!");
 }
 
-function jpgToPDF() {
-    alert("JPG से PDF में बदला जा रहा है!");
+async function pdfToJPG() {
+    alert("Converting PDF to JPG - Feature under development!");
 }
 
-function wordToPDF() {
-    alert("Word से PDF में बदला जा रहा है!");
+async function jpgToPDF() {
+    alert("Converting JPG to PDF - Feature under development!");
 }
 
-function pdfToWord() {
-    alert("PDF से Word में बदला जा रहा है!");
+async function wordToPDF() {
+    alert("Converting Word to PDF - Feature under development!");
+}
+
+async function pdfToWord() {
+    alert("Converting PDF to Word - Feature under development!");
 }
 
 function addText() {
-    alert("टेक्स्ट जोड़ा जा रहा है!");
+    const doc = new jsPDF();
+    doc.text("Sample Text", 20, 30);
+    doc.save("Edited.pdf");
 }
 
 function removeText() {
-    alert("टेक्स्ट हटाया जा रहा है!");
+    alert("Removing Text - Feature under development!");
 }
 
-function addImage() {
-    alert("इमेज जोड़ी जा रही है!");
+async function addImage() {
+    alert("Adding Image - Feature under development!");
 }
 
-function removeLogo() {
-    alert("लोगो हटाया जा रहा है!");
+async function removeLogo() {
+    alert("Removing Logo - Feature under development!");
 }
 
-function processFile() {
-    let fileInput = document.getElementById("pdfUpload");
-    let file = fileInput.files[0];
-
-    if (file) {
-        alert("प्रोसेसिंग: " + file.name);
-    } else {
-        alert("कृपया फाइल अपलोड करें।");
+function renamePDF() {
+    const fileInput = document.getElementById("pdfUpload");
+    const file = fileInput.files[0];
+    const newName = document.getElementById("newPdfName").value;
+    if (!file || !newName) {
+        alert("Please upload a PDF and enter a new name.");
+        return;
     }
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(file);
+    a.download = newName + ".pdf";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+}
+
+const dropZone = document.getElementById("dropZone");
+dropZone.addEventListener("dragover", (event) => {
+    event.preventDefault();
+    dropZone.style.backgroundColor = "#f0f0f0";
+});
+
+dropZone.addEventListener("drop", (event) => {
+    event.preventDefault();
+    dropZone.style.backgroundColor = "#fff";
+    const files = event.dataTransfer.files;
+    alert("File Uploaded: " + files[0].name);
+});
+
+function downloadPDF(pdfBytes, fileName) {
+    const blob = new Blob([pdfBytes], { type: "application/pdf" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = fileName;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
 }
