@@ -80,3 +80,88 @@ h2 {
     font-size: 16px;
     font-weight: bold;
 }
+
+
+/* 🌟 बेसिक स्टाइलिंग */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* 🏆 हेडर स्टाइल */
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 15px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+p {
+    font-size: 16px;
+}
+
+/* 📤 फ़ाइल अपलोड सेक्शन */
+.upload-section {
+    margin: 20px auto;
+    width: 50%;
+}
+
+.drop-area {
+    border: 2px dashed #007bff;
+    padding: 20px;
+    background-color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.drop-area:hover {
+    background-color: #e6f0ff;
+}
+
+/* 🛠️ बटन स्टाइल */
+.tools button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.tools button:hover {
+    background-color: #0056b3;
+}
+
+/* 📊 प्रोग्रेस बार */
+.progress-container {
+    width: 50%;
+    background-color: #ddd;
+    margin: 20px auto;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 20px;
+    width: 0%;
+    background-color: #28a745;
+}
+
+/* 📜 फुटर */
+footer {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
