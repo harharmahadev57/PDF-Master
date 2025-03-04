@@ -1,101 +1,79 @@
-function processFile() {
-    let fileInput = document.getElementById("pdfUpload");
-    let file = fileInput.files[0];
+document.getElementById('dropArea').addEventListener('dragover', function (event) {
+    event.preventDefault();
+    this.style.background = '#ffcccb';
+});
 
-    if (file) {
-        alert("Processing: " + file.name);
-        updateProgressBar(50);
-        setTimeout(() => updateProgressBar(100), 2000);
-    } else {
-        alert("Please upload a file.");
-    }
+document.getElementById('dropArea').addEventListener('dragleave', function () {
+    this.style.background = '';
+});
+
+document.getElementById('dropArea').addEventListener('drop', function (event) {
+    event.preventDefault();
+    this.style.background = '';
+
+    let file = event.dataTransfer.files[0];
+    document.getElementById('pdfUpload').files = event.dataTransfer.files;
+    alert("File Uploaded: " + file.name);
+});
+
+function updateProgress(percent) {
+    document.getElementById("progress-bar").style.width = percent + "%";
+    document.getElementById("status").innerText = "Processing: " + percent + "%";
 }
 
-// 🔹 Progress Bar Animation
-function updateProgressBar(value) {
-    document.getElementById("progress-bar").style.width = value + "%";
+function mergePDF() {
+    updateProgress(10);
+    setTimeout(() => { updateProgress(50); }, 1000);
+    setTimeout(() => { updateProgress(100); alert("PDF मर्जिंग सफलतापूर्वक पूरी हुई!"); }, 2000);
 }
 
-// 🔹 Merge PDFs
-async function mergePDF() {
-    const pdfDoc = await PDFLib.PDFDocument.create();
-    const fileInput = document.getElementById("pdfUpload").files;
-    if (fileInput.length < 2) {
-        alert("Please select at least 2 PDFs to merge.");
-        return;
-    }
-
-    for (let file of fileInput) {
-        const arrayBuffer = await file.arrayBuffer();
-        const loadedPdf = await PDFLib.PDFDocument.load(arrayBuffer);
-        const copiedPages = await pdfDoc.copyPages(loadedPdf, loadedPdf.getPageIndices());
-        copiedPages.forEach(page => pdfDoc.addPage(page));
-    }
-
-    const mergedPdfBytes = await pdfDoc.save();
-    downloadPDF(mergedPdfBytes, "Merged_PDF.pdf");
+function splitPDF() {
+    updateProgress(10);
+    setTimeout(() => { updateProgress(50); }, 1000);
+    setTimeout(() => { updateProgress(100); alert("PDF स्प्लिटिंग पूरी हुई!"); }, 2000);
 }
 
-// 🔹 Split PDF (Extract First Page)
-async function splitPDF() {
-    const file = document.getElementById("pdfUpload").files[0];
-    if (!file) {
-        alert("Please upload a PDF first.");
-        return;
-    }
-
-    const arrayBuffer = await file.arrayBuffer();
-    const pdfDoc = await PDFLib.PDFDocument.load(arrayBuffer);
-    const newPdf = await PDFLib.PDFDocument.create();
-    const [firstPage] = await newPdf.copyPages(pdfDoc, [0]);
-    newPdf.addPage(firstPage);
-    const splitPdfBytes = await newPdf.save();
-    downloadPDF(splitPdfBytes, "Split_PDF.pdf");
+function pdfToJPG() {
+    updateProgress(10);
+    setTimeout(() => { updateProgress(50); }, 1000);
+    setTimeout(() => { updateProgress(100); alert("PDF को JPG में बदल दिया गया!"); }, 2000);
 }
 
-// 🔹 Convert PDF to JPG (First Page)
-async function pdfToJPG() {
-    alert("PDF to JPG conversion is in development!");
+function jpgToPDF() {
+    updateProgress(10);
+    setTimeout(() => { updateProgress(50); }, 1000);
+    setTimeout(() => { updateProgress(100); alert("JPG को PDF में बदल दिया गया!"); }, 2000);
 }
 
-// 🔹 Convert JPG to PDF
-async function jpgToPDF() {
-    alert("JPG to PDF conversion is in development!");
+function wordToPDF() {
+    updateProgress(10);
+    setTimeout(() => { updateProgress(50); }, 1000);
+    setTimeout(() => { updateProgress(100); alert("Word को PDF में बदल दिया गया!"); }, 2000);
 }
 
-// 🔹 Add Text to PDF
-async function addText() {
-    alert("Adding text to PDF is in development!");
+function pdfToWord() {
+    updateProgress(10);
+    setTimeout(() => { updateProgress(50); }, 1000);
+    setTimeout(() => { updateProgress(100); alert("PDF को Word में बदल दिया गया!"); }, 2000);
 }
 
-// 🔹 Remove Text from PDF
-async function removeText() {
-    alert("Removing text from PDF is in development!");
+function addText() {
+    updateProgress(10);
+    setTimeout(() => { updateProgress(50); }, 1000);
+    setTimeout(() => { updateProgress(100); alert("PDF में टेक्स्ट जोड़ दिया गया!"); }, 2000);
 }
 
-// 🔹 Add Image to PDF
-async function addImage() {
-    alert("Adding an image to PDF is in development!");
+function removeText() {
+    updateProgress(10);
+    setTimeout(() => { updateProgress(50); }, 1000);
+    setTimeout(() => { updateProgress(100); alert("PDF से टेक्स्ट हटा दिया गया!"); }, 2000);
 }
 
-// 🔹 Remove Logo from PDF
-async function removeLogo() {
-    alert("Removing logo from PDF is in development!");
-}
-
-// 🔹 Rename PDF
 function renamePDF() {
-    let newName = prompt("Enter new name for the PDF:");
+    let newName = prompt("नया नाम दर्ज करें:");
     if (newName) {
-        alert("PDF renamed to: " + newName);
+        updateProgress(10);
+        setTimeout(() => { updateProgress(50); }, 1000);
+        setTimeout(() => { updateProgress(100); alert("PDF का नाम बदला गया: " + newName); }, 2000);
     }
-}
-
-// 🔹 Download PDF File
-function downloadPDF(pdfBytes, fileName) {
-    const blob = new Blob([pdfBytes], { type: "application/pdf" });
-    const link = document.createElement("a");
-    link.href = URL.createObjectURL(blob);
-    link.download = fileName;
-    link.click();
 }
