@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Master - Free PDF Editor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>📄 PDF Master - Free PDF Editor</h1>
+    </header>
+
+    <div class="container">
+        <h2>Choose a tool:</h2>
+        <div class="tools">
+            <button onclick="mergePDF()">Merge PDF</button>
+            <button onclick="splitPDF()">Split PDF</button>
+            <button onclick="pdfToJPG()">PDF to JPG</button>
+            <button onclick="jpgToPDF()">JPG to PDF</button>
+            <button onclick="wordToPDF()">Word to PDF</button>
+            <button onclick="pdfToWord()">PDF to Word</button>
+            <button onclick="addText()">Add Text</button>
+            <button onclick="removeText()">Remove Text</button>
+            <button onclick="addImage()">Add Image</button>
+            <button onclick="removeLogo()">Remove Logo</button>
+        </div>
+
+        <input type="file" id="pdfUpload" accept=".pdf,.jpg,.png,.docx">
+        <button onclick="processFile()">Process File</button>
+
+        <div id="output"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
