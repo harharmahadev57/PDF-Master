@@ -41,3 +41,51 @@
 
 </body>
 </html>
+
+
+.<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Master - PDF Editor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- 🚀 Website Header -->
+    <header>
+        <h1>📄 PDF Master</h1>
+        <p>सभी PDF टूल्स एक ही जगह!</p>
+    </header>
+
+    <!-- 📂 File Upload Section -->
+    <section class="upload-section">
+        <div id="dropArea" class="drop-area">
+            <p>📥 यहाँ PDF फ़ाइल खींचें या क्लिक करके अपलोड करें</p>
+            <input type="file" id="fileInput" accept=".pdf" hidden>
+        </div>
+        <p id="output"></p>
+    </section>
+
+    <!-- 🔧 PDF टूल्स -->
+    <section class="tools">
+        <button id="mergeBtn">🛠️ PDF मर्ज करें</button>
+        <button id="splitBtn">✂️ PDF विभाजित करें</button>
+        <button id="renameBtn">✏️ नाम बदलें</button>
+        <button id="removeLogoBtn">🚫 लोगो हटाएँ</button>
+    </section>
+
+    <!-- 📊 Progress Bar -->
+    <div id="progressContainer" class="progress-container" style="display: none;">
+        <div id="progressBar" class="progress-bar"></div>
+    </div>
+
+    <!-- 📜 Footer -->
+    <footer>
+        <p>© 2025 PDF Master | सभी अधिकार सुरक्षित</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
