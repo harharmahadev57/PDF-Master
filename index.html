@@ -1,40 +1,33 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PDF Master - Free PDF Editor</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>PDF Editor</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.16.0/pdf-lib.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
 </head>
 <body>
-
-    <header>
-        <h1>PDF Master</h1>
-        <p>सभी PDF टूल्स एक ही जगह!</p>
-    </header>
-
-    <main>
-        <div class="upload-section">
-            <input type="file" id="pdfUpload" accept=".pdf">
-            <button onclick="processFile()">फाइल अपलोड करें</button>
-            <p>या अपनी PDF यहाँ ड्रैग करें</p>
-        </div>
-
-        <div class="tool-section">
-            <button onclick="mergePDF()">PDF मर्ज करें</button>
-            <button onclick="splitPDF()">PDF स्प्लिट करें</button>
-            <button onclick="renamePDF()">PDF का नाम बदलें</button>
-            <button onclick="pdfToJPG()">PDF से JPG बनाएं</button>
-            <button onclick="jpgToPDF()">JPG से PDF बनाएं</button>
-            <button onclick="wordToPDF()">Word से PDF बनाएं</button>
-            <button onclick="pdfToWord()">PDF से Word बनाएं</button>
-            <button onclick="addText()">टेक्स्ट जोड़ें</button>
-            <button onclick="removeText()">टेक्स्ट हटाएं</button>
-            <button onclick="addImage()">इमेज जोड़ें</button>
-            <button onclick="removeLogo()">लोगो हटाएं</button>
-        </div>
-
-    </main>
+    <h1>PDF Editor</h1>
+    
+    <input type="file" id="pdfUpload" accept=".pdf" multiple />
+    <button onclick="mergePDFs()">Merge PDFs</button>
+    <button onclick="splitPDF()">Split PDF</button>
+    <button onclick="pdfToJPG()">Convert PDF to JPG</button>
+    <button onclick="jpgToPDF()">Convert JPG to PDF</button>
+    <button onclick="wordToPDF()">Convert Word to PDF</button>
+    <button onclick="pdfToWord()">Convert PDF to Word</button>
+    <button onclick="addText()">Add Text</button>
+    <button onclick="removeText()">Remove Text</button>
+    <button onclick="addImage()">Add Image</button>
+    <button onclick="removeLogo()">Remove Logo</button>
+    
+    <input type="text" id="newPdfName" placeholder="Enter New PDF Name" />
+    <button onclick="renamePDF()">Rename PDF</button>
+    
+    <div id="dropZone">Drag & Drop PDF Here</div>
 
     <script src="script.js"></script>
 </body>
