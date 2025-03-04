@@ -8,13 +8,13 @@
 
 body {
     text-align: center;
-    background: #f5f7fa;
+    background: #f0f4f8;
     color: #333;
 }
 
 /* 🔹 Header Styling */
 header {
-    background: linear-gradient(90deg, #ff5722, #ff9800);
+    background: linear-gradient(90deg, #6a11cb, #2575fc);
     color: white;
     padding: 15px;
     display: flex;
@@ -49,17 +49,17 @@ main {
 }
 
 #drop-area {
-    border: 3px dashed #ff5722;
+    border: 3px dashed #6a11cb;
     padding: 25px;
     margin: 20px 0;
     border-radius: 12px;
-    background: #fff3e0;
+    background: #e0e7ff;
     cursor: pointer;
     transition: 0.3s;
 }
 
 #drop-area:hover {
-    background: #ffe0b2;
+    background: #c7d2fe;
 }
 
 /* 🔹 Buttons */
@@ -72,7 +72,7 @@ main {
 button {
     padding: 12px 20px;
     margin: 8px;
-    background: linear-gradient(90deg, #ff5722, #ff9800);
+    background: linear-gradient(90deg, #6a11cb, #2575fc);
     color: white;
     font-size: 16px;
     font-weight: bold;
@@ -83,7 +83,7 @@ button {
 }
 
 button:hover {
-    background: linear-gradient(90deg, #e64a19, #f57c00);
+    background: linear-gradient(90deg, #4a0c9e, #1b5fcc);
     transform: scale(1.05);
 }
 
