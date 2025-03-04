@@ -231,3 +231,136 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("removeLogo").addEventListener("click", removeLogo);
     document.getElementById("processFile").addEventListener("click", processFile);
 });
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const dropArea = document.getElementById("drop-area");
+    const fileInput = document.getElementById("pdfUpload");
+    const progressBar = document.getElementById("progress-bar");
+
+    // 🎯 Drag & Drop Functionality
+    dropArea.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        dropArea.style.borderColor = "#28a745";
+    });
+
+    dropArea.addEventListener("dragleave", () => {
+        dropArea.style.borderColor = "#007bff";
+    });
+
+    dropArea.addEventListener("drop", (e) => {
+        e.preventDefault();
+        dropArea.style.borderColor = "#007bff";
+        fileInput.files = e.dataTransfer.files;
+        processFile();
+    });
+
+    // 📂 File Upload Process
+    function processFile() {
+        let file = fileInput.files[0];
+        if (file) {
+            alert("Processing: " + file.name);
+            updateProgressBar(100);
+        } else {
+            alert("Please upload a file.");
+        }
+    }
+
+    // 🟢 Progress Bar Animation
+    function updateProgressBar(value) {
+        progressBar.style.width = value + "%";
+    }
+
+    // 📌 Merge PDF
+    function mergePDF() {
+        alert("Merging PDFs...");
+        updateProgressBar(50);
+        setTimeout(() => updateProgressBar(100), 2000);
+    }
+
+    // ✂️ Split PDF
+    function splitPDF() {
+        alert("Splitting PDF...");
+        updateProgressBar(50);
+        setTimeout(() => updateProgressBar(100), 2000);
+    }
+
+    // 📷 Convert PDF to JPG
+    function pdfToJPG() {
+        alert("Converting PDF to JPG...");
+        updateProgressBar(50);
+        setTimeout(() => updateProgressBar(100), 2000);
+    }
+
+    // 🖼️ Convert JPG to PDF
+    function jpgToPDF() {
+        alert("Converting JPG to PDF...");
+        updateProgressBar(50);
+        setTimeout(() => updateProgressBar(100), 2000);
+    }
+
+    // 📄 Convert Word to PDF
+    function wordToPDF() {
+        alert("Converting Word to PDF...");
+        updateProgressBar(50);
+        setTimeout(() => updateProgressBar(100), 2000);
+    }
+
+    // 🔄 Convert PDF to Word
+    function pdfToWord() {
+        alert("Converting PDF to Word...");
+        updateProgressBar(50);
+        setTimeout(() => updateProgressBar(100), 2000);
+    }
+
+    // ✏️ Add Text
+    function addText() {
+        alert("Adding Text...");
+        updateProgressBar(50);
+        setTimeout(() => updateProgressBar(100), 2000);
+    }
+
+    // ❌ Remove Text
+    function removeText() {
+        alert("Removing Text...");
+        updateProgressBar(50);
+        setTimeout(() => updateProgressBar(100), 2000);
+    }
+
+    // 🖼️ Add Image
+    function addImage() {
+        alert("Adding Image...");
+        updateProgressBar(50);
+        setTimeout(() => updateProgressBar(100), 2000);
+    }
+
+    // 🚫 Remove Logo
+    function removeLogo() {
+        alert("Removing Logo...");
+        updateProgressBar(50);
+        setTimeout(() => updateProgressBar(100), 2000);
+    }
+
+    // ✏️ Rename PDF
+    function renamePDF() {
+        let newName = prompt("Enter new PDF name:");
+        if (newName) {
+            alert("PDF Renamed to: " + newName);
+            updateProgressBar(100);
+        }
+    }
+
+    // 🎯 Bind Functions to Buttons
+    document.getElementById("merge").addEventListener("click", mergePDF);
+    document.getElementById("split").addEventListener("click", splitPDF);
+    document.getElementById("pdfToJpg").addEventListener("click", pdfToJPG);
+    document.getElementById("jpgToPdf").addEventListener("click", jpgToPDF);
+    document.getElementById("wordToPdf").addEventListener("click", wordToPDF);
+    document.getElementById("pdfToWord").addEventListener("click", pdfToWord);
+    document.getElementById("addText").addEventListener("click", addText);
+    document.getElementById("removeText").addEventListener("click", removeText);
+    document.getElementById("addImage").addEventListener("click", addImage);
+    document.getElementById("removeLogo").addEventListener("click", removeLogo);
+    document.getElementById("renamePdf").addEventListener("click", renamePDF);
+});
