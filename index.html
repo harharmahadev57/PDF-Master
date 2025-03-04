@@ -1,34 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PDF Editor</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.16.0/pdf-lib.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
+    <title>PDF Master - Free PDF Tools</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
-    <h1>PDF Editor</h1>
-    
-    <input type="file" id="pdfUpload" accept=".pdf" multiple />
-    <button onclick="mergePDFs()">Merge PDFs</button>
-    <button onclick="splitPDF()">Split PDF</button>
-    <button onclick="pdfToJPG()">Convert PDF to JPG</button>
-    <button onclick="jpgToPDF()">Convert JPG to PDF</button>
-    <button onclick="wordToPDF()">Convert Word to PDF</button>
-    <button onclick="pdfToWord()">Convert PDF to Word</button>
-    <button onclick="addText()">Add Text</button>
-    <button onclick="removeText()">Remove Text</button>
-    <button onclick="addImage()">Add Image</button>
-    <button onclick="removeLogo()">Remove Logo</button>
-    
-    <input type="text" id="newPdfName" placeholder="Enter New PDF Name" />
-    <button onclick="renamePDF()">Rename PDF</button>
-    
-    <div id="dropZone">Drag & Drop PDF Here</div>
 
-    <script src="script.js"></script>
+    <header>
+        <h1>📄 PDF Master</h1>
+        <p>सभी PDF टूल्स एक ही जगह पर - 100% फ्री!</p>
+    </header>
+
+    <div class="container">
+        <h2>📂 अपनी PDF फाइल ड्रैग & ड्रॉप करें</h2>
+        <input type="file" id="fileInput" multiple accept=".pdf">
+        <div id="dropArea">फाइल यहाँ ड्रॉप करें</div>
+        <div id="progressContainer">
+            <div id="progressBar"></div>
+        </div>
+        
+        <div class="buttons">
+            <button onclick="mergePDF()">📑 PDF Merge</button>
+            <button onclick="splitPDF()">✂️ PDF Split</button>
+            <button onclick="pdfToJPG()">🖼️ PDF to JPG</button>
+            <button onclick="jpgToPDF()">📸 JPG to PDF</button>
+            <button onclick="wordToPDF()">📝 Word to PDF</button>
+            <button onclick="pdfToWord()">🔄 PDF to Word</button>
+            <button onclick="addText()">✍️ Add Text</button>
+            <button onclick="removeText()">🗑️ Remove Text</button>
+            <button onclick="addImage()">🖼️ Add Image</button>
+            <button onclick="removeLogo()">🚫 Remove Logo</button>
+            <button onclick="renamePDF()">✏️ Rename PDF</button>
+        </div>
+        
+        <div id="output"></div>
+    </div>
+
 </body>
 </html>
