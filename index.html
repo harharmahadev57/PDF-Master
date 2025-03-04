@@ -3,46 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PDF Master - Ultimate PDF Editor</title>
+    <title>PDF Master - Free PDF Tools</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
-    <script src="script.js" defer></script>
+    <script defer src="script.js"></script>
 </head>
 <body>
+
     <header>
         <img src="logo.png" alt="PDF Master Logo" class="logo">
-        <h1>📄 PDF Master - Ultimate PDF Editor</h1>
+        <h1>PDF Master - Free PDF Tools</h1>
     </header>
 
     <main>
-        <!-- File Upload Section -->
-        <section id="file-section">
-            <h2>Upload Your PDF</h2>
-            <div id="drop-area">
-                <input type="file" id="pdfUpload" accept="application/pdf">
-                <p>Drag & Drop or Click to Upload PDF</p>
-            </div>
-            <button onclick="processFile()">Process File</button>
-            <div class="progress-container">
-                <div id="progress-bar"></div>
-            </div>
-        </section>
+        <input type="file" id="pdfUpload" accept=".pdf">
+        <div id="dropArea">फाइल को यहां खींचें और छोड़ें</div>
 
-        <!-- PDF Editing Features -->
-        <section id="features">
-            <h2>📌 PDF Editing Features</h2>
-            <div class="button-container">
-                <button onclick="mergePDF()">📎 Merge PDF</button>
-                <button onclick="splitPDF()">✂️ Split PDF</button>
-                <button onclick="pdfToJPG()">📷 Convert PDF to JPG</button>
-                <button onclick="jpgToPDF()">🖼️ Convert JPG to PDF</button>
-                <button onclick="addText()">✏️ Add Text</button>
-                <button onclick="removeText()">❌ Remove Text</button>
-                <button onclick="addImage()">🖼️ Add Image</button>
-                <button onclick="removeLogo()">🚫 Remove Logo</button>
-                <button onclick="renamePDF()">✏️ Rename PDF</button>
-            </div>
-        </section>
+        <div class="buttons">
+            <button onclick="mergePDF()">PDF मर्ज करें</button>
+            <button onclick="splitPDF()">PDF स्प्लिट करें</button>
+            <button onclick="pdfToJPG()">PDF को JPG में बदलें</button>
+            <button onclick="jpgToPDF()">JPG को PDF में बदलें</button>
+            <button onclick="wordToPDF()">Word को PDF में बदलें</button>
+            <button onclick="pdfToWord()">PDF को Word में बदलें</button>
+            <button onclick="addText()">PDF में टेक्स्ट जोड़ें</button>
+            <button onclick="removeText()">PDF से टेक्स्ट हटाएं</button>
+            <button onclick="renamePDF()">PDF का नाम बदलें</button>
+        </div>
+
+        <div class="progress-container">
+            <div id="progress-bar"></div>
+        </div>
+
+        <p id="status"></p>
+
     </main>
+
 </body>
 </html>
