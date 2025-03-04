@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f8f9fa;
+}
+
+header {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px;
+    font-size: 24px;
+}
+
+.container {
+    margin: 20px auto;
+    width: 80%;
+    max-width: 600px;
+}
+
+.tools button {
+    margin: 5px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #28A745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.tools button:hover {
+    background-color: #218838;
+}
+
+input, button {
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 16px;
+}
