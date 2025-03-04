@@ -1,122 +1,62 @@
-/* 🔹 Reset & Global Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
 body {
+    font-family: Arial, sans-serif;
     text-align: center;
-    background: #f0f4f8;
-    color: #333;
+    background: #f4f4f4;
 }
 
-/* 🔹 Header Styling */
 header {
-    background: linear-gradient(90deg, #6a11cb, #2575fc);
+    background: #ff4500;
     color: white;
-    padding: 15px;
+    padding: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .logo {
-    width: 55px;
-    margin-right: 12px;
+    width: 50px;
+    margin-right: 10px;
 }
 
-h1 {
-    font-size: 26px;
-    font-weight: bold;
-}
-
-/* 🔹 Main Content */
 main {
-    max-width: 800px;
-    margin: 40px auto;
+    max-width: 600px;
+    margin: 20px auto;
     background: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.15);
-}
-
-/* 🔹 File Upload Section */
-#file-section {
-    margin-bottom: 30px;
-}
-
-#drop-area {
-    border: 3px dashed #6a11cb;
-    padding: 25px;
-    margin: 20px 0;
-    border-radius: 12px;
-    background: #e0e7ff;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-#drop-area:hover {
-    background: #c7d2fe;
-}
-
-/* 🔹 Buttons */
-.button-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    padding: 20px;
+    box-shadow: 0px 0px 10px gray;
 }
 
 button {
-    padding: 12px 20px;
-    margin: 8px;
-    background: linear-gradient(90deg, #6a11cb, #2575fc);
+    padding: 10px;
+    margin: 5px;
+    background: #ff4500;
     color: white;
-    font-size: 16px;
-    font-weight: bold;
     border: none;
-    border-radius: 6px;
     cursor: pointer;
-    transition: 0.3s ease;
 }
 
 button:hover {
-    background: linear-gradient(90deg, #4a0c9e, #1b5fcc);
-    transform: scale(1.05);
+    background: #ff2200;
 }
 
-/* 🔹 Progress Bar */
 .progress-container {
     width: 100%;
-    background: #ddd;
-    height: 12px;
-    border-radius: 6px;
-    margin-top: 12px;
-    position: relative;
-    overflow: hidden;
+    background: lightgray;
+    height: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
 }
 
 #progress-bar {
     height: 100%;
     width: 0%;
-    background: linear-gradient(90deg, #4caf50, #2e7d32);
-    border-radius: 6px;
-    transition: width 0.5s ease-in-out;
+    background: green;
+    border-radius: 5px;
 }
 
-/* 🔹 Responsive Design */
-@media (max-width: 600px) {
-    .button-container button {
-        flex: 1 1 100%;
-    }
-
-    h1 {
-        font-size: 22px;
-    }
-
-    .logo {
-        width: 45px;
-    }
+#dropArea {
+    border: 2px dashed #ff4500;
+    padding: 20px;
+    margin-top: 10px;
+    cursor: pointer;
 }
